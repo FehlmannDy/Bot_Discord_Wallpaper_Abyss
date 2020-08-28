@@ -2,7 +2,7 @@ import requests
 import discord
 from discord.ext import commands
 
-TOKEN = 'NzQ0OTMzMTc1MTQyMzgzNzA2.XzqbFQ.9Jk2Kvj0lgdKsmzWta7-WCsxvbM'
+TOKEN = ''
 
 description = '''Wallpapers_Abyss in Python | Gets our wallpaper from https://wall.alphacoders.com/'''
 
