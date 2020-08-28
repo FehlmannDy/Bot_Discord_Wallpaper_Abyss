@@ -1,5 +1,6 @@
 import requests
 import key
+from disputils import BotEmbedPaginator, BotConfirmation, BotMultipleChoice
 import discord
 from discord.ext import commands
 
@@ -28,7 +29,7 @@ async def add(ctx, left : int, right : int):
 
 @bot.command()
 async def search(ctx, search):
-    """Search with word the wallpaper for multiple words put \"\" ex : !search \"Batman and Robin\""""
+    """Search with word the wallpaper for multiple words put \"\" ex : !search \"Batman\""""
     await ctx.send(Search_Wallpaper(search))
 
 def Search_Wallpaper(search):
@@ -46,7 +47,17 @@ async def newest(ctx):
 @bot.command()
 async def random(ctx):
     """Get random Wallpaper"""
-    await ctx.send(Random_Wallpaper())
+    e1=discord.Embed(title="Wallpapers 1", color=0x115599)
+    e2=discord.Embed(title="Wallpapers 2", color=0x5599ff)
+    e1.set_image(url=Random_Wallpaper())
+    e2.set_image(url=Random_Wallpaper())
+    embeds = [
+        e1,
+        e2
+    ]
+
+    paginator = BotEmbedPaginator(ctx, embeds)
+    await paginator.run()
 
 def Newest_Wallpaper():
     request = requests.get('https://wall.alphacoders.com/api2.0/get.php?auth=f9c33efef3cc523f4bb50f75394295ca&method=neweset')
