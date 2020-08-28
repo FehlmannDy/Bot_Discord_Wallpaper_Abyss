@@ -1,8 +1,9 @@
 import requests
+import key
 import discord
 from discord.ext import commands
 
-TOKEN = ''
+
 
 description = '''Wallpapers_Abyss in Python | Gets our wallpaper from https://wall.alphacoders.com/'''
 
@@ -61,4 +62,4 @@ def Random_Wallpaper():
         return p['url_image']
         break
 
-bot.run(TOKEN)
+bot.run(key.TOKEN)
